@@ -1,0 +1,19 @@
+{
+  "name": "node-red-contrib-telstra",
+  "version": "0.0.1",
+  "description": "A Node-RED node for sending SMS messages through the Telstra Messaging API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brendan Myers",
+  "license": "Apache-2.0",
+  "node-red": {
+    "nodes": {
+      "telstra-messaging-api": "telstra-messaging-api.js"
+    }
+  },
+  "dependencies": {
+    "node-fetch": "^1.7.3"
+  }
+}

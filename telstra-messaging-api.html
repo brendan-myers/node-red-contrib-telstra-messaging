@@ -1,0 +1,94 @@
+<!--
+
+Copyright 2017 Telstra Corporation Limited (ABN 33 051 775 556)
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in  compliance with the License.
+
+You may obtain a copy of the License at:
+	
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.
+
+See the License for the specific language governing permissions and limitations
+under the License.
+
+-->
+<script type="text/javascript">
+	RED.nodes.registerType('telstra-messaging-api', {
+		category: 'telstra-services',
+		color: '#0099f8',
+		defaults: {
+			name:      { value: "" },
+			recipient: { value: "" }
+		},
+		credentials: {
+			consumerKey:    { type: "text" },
+			consumerSecret: { type: "text" }
+		},
+		inputs: 1,
+		outputs: 0,
+		icon: "bridge.png",
+		label: function() {
+			return this.name || "telstra messaging api";
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name="telstra-messaging-api">
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name" value="Name">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-consumerKey"><i class="fa fa-key"></i> Consumer Key</label>
+		<input type="text" id="node-input-consumerKey" placeholder="Consumer Key" value="Consumer Key">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-consumerSecret"><i class="fa fa-user-secret"></i> Consumer Secret</label>
+		<input type="text" id="node-input-consumerSecret" placeholder="Consumer Secret" value="Consumer Secret">
+	</div>
+
+	<div class="form-row">
+		<label for="node-input-recipient"><i class="fa fa-mobile"></i> Recipient</label>
+		<input type="text" id="node-input-recipient" placeholder="Recipient" value="Recipient">
+	</div>
+</script>
+
+<script type="text/x-red" data-help-name="telstra-messaging-api">
+	<p>Send SMS messages via the Telstra Messaging API</p>
+	
+	<h3>Inputs</h3>
+		<dl class="message-properties">
+			<dt>consumer key
+				<span class="property-type">string</span>
+			</dt>
+			<dd> the consumer key for your Telstra Messaging API app.</dd>
+
+			<dt>consumer secret
+				<span class="property-type">string</span>
+			</dt>
+			<dd> the consumer secret for your Telstra Messaging API app.</dd>
+
+			<dt>recipient
+				<span class="property-type">integer</span>
+			</dt>
+			<dd> phone number (in E.164 format) to send the SMS to. This number can be in international format if preceeded by a '+', or in national format.</dd>
+		</dl>
+	
+	<h3>Details</h3>
+		<p><code>msg.payload</code> is used as the payload of the SMS.</p>
+	
+	<h3>Prerequisites</h3>
+		<p>A Telstra Messaging API application, with a dedicated number provisioned.</p>
+
+	<h3>References</h3>
+		<ul>
+			<li><a href="dev.telstra.com">Telstra Dev Portal</a></li>
+		</ul>
+	</script>
